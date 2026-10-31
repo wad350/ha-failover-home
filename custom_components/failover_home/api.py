@@ -13,7 +13,10 @@ class FailoverAuthError(FailoverError):
 
 
 def normalize_config(url: str, fingerprint: str) -> tuple[str, bytes]:
-    p = urlsplit(url.strip().rstrip('/'))
+    try:
+        p = urlsplit(url.strip().rstrip('/'))
+    except (ValueError, AttributeError) as ex:
+        raise ValueError('invalid_url') from ex
     if p.scheme != 'https' or not p.hostname or p.username or p.password or p.path not in ('', '/') or p.query or p.fragment:
         raise ValueError('invalid_url')
     raw = re.sub(r'[:\s]', '', fingerprint)
@@ -61,7 +64,7 @@ class FailoverClient:
             if 'Требуется вход' in str(result['error']):
                 raise FailoverAuthError('Сессия OpenWrt недействительна')
             safe_mode_errors = {'PPPoE сейчас не подключён. Дождитесь восстановления соединения', 'На ether5 нет адреса DHCP от Keenetic', 'Keenetic не отвечает. Режим не изменён', 'На MikroTik отсутствует переключатель каналов', 'Другое изменение уже выполняется'}
-            if method == 'mode' and result['error'] in safe_mode_errors:
+            if method == 'mode' and isinstance(result['error'], str) and result['error'] in safe_mode_errors:
                 raise FailoverError(result['error'])
             raise FailoverError('Ошибка получения данных роутера')
         return result
