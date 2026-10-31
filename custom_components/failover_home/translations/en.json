@@ -1,0 +1,174 @@
+{
+  "config": {
+    "step": {
+      "user": {
+        "title": "Home network · Failover",
+        "description": "Connect to OpenWrt with a pinned SHA-256 certificate fingerprint. Credentials stay in Home Assistant.",
+        "data": {
+          "host": "OpenWrt HTTPS URL",
+          "username": "OpenWrt user",
+          "password": "OpenWrt password",
+          "fingerprint": "TLS certificate SHA-256 fingerprint"
+        }
+      },
+      "reauth_confirm": {
+        "title": "Update OpenWrt access",
+        "description": "Check the certificate fingerprint and enter a new password if it changed.",
+        "data": {
+          "username": "OpenWrt user",
+          "password": "New password (leave empty to retain current password)",
+          "fingerprint": "TLS certificate SHA-256 fingerprint"
+        }
+      },
+      "reconfigure": {
+        "title": "Update OpenWrt access",
+        "description": "Check the certificate fingerprint and enter a new password if it changed.",
+        "data": {
+          "username": "OpenWrt user",
+          "password": "New password (leave empty to retain current password)",
+          "fingerprint": "TLS certificate SHA-256 fingerprint"
+        }
+      }
+    },
+    "error": {
+      "invalid_auth": "OpenWrt credentials were rejected",
+      "cannot_connect": "Cannot reach OpenWrt or the certificate fingerprint does not match",
+      "invalid_url": "Enter an HTTPS OpenWrt address without a path",
+      "invalid_fingerprint": "Fingerprint must contain 64 hexadecimal digits"
+    },
+    "abort": {
+      "already_configured": "This router is already configured"
+    }
+  },
+  "entity": {
+    "sensor": {
+      "active_channel": {
+        "name": "Active channel",
+        "state": {
+          "pppoe": "Primary",
+          "4g": "4G",
+          "offline": "Offline"
+        }
+      },
+      "primary_ip": {
+        "name": "Primary public IP"
+      },
+      "backup_ip": {
+        "name": "4G public IP"
+      },
+      "operator": {
+        "name": "Operator"
+      },
+      "radio": {
+        "name": "Network type",
+        "state": {
+          "4g": "4G",
+          "4g_plus": "4G+"
+        }
+      },
+      "bands": {
+        "name": "LTE bands"
+      },
+      "rsrp": {
+        "name": "RSRP signal"
+      },
+      "rssi": {
+        "name": "RSSI power"
+      },
+      "rsrq": {
+        "name": "RSRQ quality"
+      },
+      "sinr": {
+        "name": "SINR"
+      },
+      "modem_temperature": {
+        "name": "Modem PA temperature"
+      },
+      "cellular_cpu_temperature": {
+        "name": "4G router CPU temperature"
+      },
+      "sfp_rx": {
+        "name": "Optical receive power"
+      },
+      "sfp_tx": {
+        "name": "Optical transmit power"
+      },
+      "sfp_temperature": {
+        "name": "Optical temperature"
+      },
+      "sfp_cpu_temperature": {
+        "name": "SFP CPU temperature"
+      },
+      "board_temperature": {
+        "name": "MikroTik board temperature"
+      },
+      "restriction_state": {
+        "name": "Operator restrictions",
+        "state": {
+          "enabled": "Active",
+          "disabled": "Inactive",
+          "unreachable": "Checks unavailable"
+        }
+      },
+      "vpn_state": {
+        "name": "VPN status",
+        "state": {
+          "up": "Working",
+          "off": "Off",
+          "checking": "Not ready"
+        }
+      },
+      "primary_download": {
+        "name": "Primary download"
+      },
+      "primary_upload": {
+        "name": "Primary upload"
+      },
+      "backup_download": {
+        "name": "4G download"
+      },
+      "backup_upload": {
+        "name": "4G upload"
+      }
+    },
+    "binary_sensor": {
+      "pppoe_connected": {
+        "name": "PPPoE connected"
+      },
+      "backup_gateway": {
+        "name": "4G gateway ready"
+      },
+      "gpon_registered": {
+        "name": "GPON registered"
+      },
+      "optical_signal": {
+        "name": "Optical signal"
+      },
+      "restriction_active": {
+        "name": "Operator restrictions active"
+      },
+      "bypass_enabled": {
+        "name": "Automatic bypass enabled"
+      },
+      "vpn_running": {
+        "name": "VPN enabled"
+      },
+      "probe_one": {
+        "name": "Internet check 1"
+      },
+      "probe_two": {
+        "name": "Internet check 2"
+      }
+    },
+    "select": {
+      "mode": {
+        "name": "Internet selection mode",
+        "state": {
+          "auto": "Automatic",
+          "pppoe": "Primary",
+          "4g": "4G"
+        }
+      }
+    }
+  }
+}

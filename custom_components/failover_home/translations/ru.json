@@ -1,0 +1,174 @@
+{
+  "config": {
+    "step": {
+      "user": {
+        "title": "Домашняя сеть · Failover",
+        "description": "Подключение к OpenWrt по закреплённому SHA-256 сертификата. Данные остаются в Home Assistant.",
+        "data": {
+          "host": "Адрес OpenWrt (HTTPS)",
+          "username": "Пользователь OpenWrt",
+          "password": "Пароль OpenWrt",
+          "fingerprint": "SHA-256 отпечаток сертификата"
+        }
+      },
+      "reauth_confirm": {
+        "title": "Обновить доступ к OpenWrt",
+        "description": "Проверьте отпечаток сертификата и введите новый пароль, если он изменился.",
+        "data": {
+          "username": "Пользователь OpenWrt",
+          "password": "Новый пароль (пустое поле сохраняет текущий)",
+          "fingerprint": "SHA-256 отпечаток сертификата"
+        }
+      },
+      "reconfigure": {
+        "title": "Обновить доступ к OpenWrt",
+        "description": "Проверьте отпечаток сертификата и введите новый пароль, если он изменился.",
+        "data": {
+          "username": "Пользователь OpenWrt",
+          "password": "Новый пароль (пустое поле сохраняет текущий)",
+          "fingerprint": "SHA-256 отпечаток сертификата"
+        }
+      }
+    },
+    "error": {
+      "invalid_auth": "Не удалось войти в OpenWrt",
+      "cannot_connect": "OpenWrt недоступен или отпечаток сертификата не совпадает",
+      "invalid_url": "Укажите HTTPS-адрес OpenWrt без пути",
+      "invalid_fingerprint": "Отпечаток должен содержать 64 шестнадцатеричных символа"
+    },
+    "abort": {
+      "already_configured": "Этот роутер уже добавлен"
+    }
+  },
+  "entity": {
+    "sensor": {
+      "active_channel": {
+        "name": "Активный канал",
+        "state": {
+          "pppoe": "Ростелеком",
+          "4g": "4G",
+          "offline": "Нет канала"
+        }
+      },
+      "primary_ip": {
+        "name": "Внешний IP Ростелекома"
+      },
+      "backup_ip": {
+        "name": "Внешний IP 4G"
+      },
+      "operator": {
+        "name": "Оператор"
+      },
+      "radio": {
+        "name": "Тип сети",
+        "state": {
+          "4g": "4G",
+          "4g_plus": "4G+"
+        }
+      },
+      "bands": {
+        "name": "Диапазоны LTE"
+      },
+      "rsrp": {
+        "name": "Сигнал RSRP"
+      },
+      "rssi": {
+        "name": "Мощность RSSI"
+      },
+      "rsrq": {
+        "name": "Качество RSRQ"
+      },
+      "sinr": {
+        "name": "Отношение сигнал/шум SINR"
+      },
+      "modem_temperature": {
+        "name": "Температура модема PA"
+      },
+      "cellular_cpu_temperature": {
+        "name": "Температура процессора 4G"
+      },
+      "sfp_rx": {
+        "name": "Оптика приём"
+      },
+      "sfp_tx": {
+        "name": "Оптика передача"
+      },
+      "sfp_temperature": {
+        "name": "Температура оптики"
+      },
+      "sfp_cpu_temperature": {
+        "name": "Температура процессора SFP"
+      },
+      "board_temperature": {
+        "name": "Температура платы MikroTik"
+      },
+      "restriction_state": {
+        "name": "Белые списки оператора",
+        "state": {
+          "enabled": "Активны",
+          "disabled": "Нет",
+          "unreachable": "Нет связи для проверки"
+        }
+      },
+      "vpn_state": {
+        "name": "Состояние VPN",
+        "state": {
+          "up": "Работает",
+          "off": "Выключен",
+          "checking": "Не готов"
+        }
+      },
+      "primary_download": {
+        "name": "Ростелеком загрузка"
+      },
+      "primary_upload": {
+        "name": "Ростелеком отдача"
+      },
+      "backup_download": {
+        "name": "4G загрузка"
+      },
+      "backup_upload": {
+        "name": "4G отдача"
+      }
+    },
+    "binary_sensor": {
+      "pppoe_connected": {
+        "name": "PPPoE подключён"
+      },
+      "backup_gateway": {
+        "name": "Шлюз 4G доступен"
+      },
+      "gpon_registered": {
+        "name": "GPON зарегистрирован"
+      },
+      "optical_signal": {
+        "name": "Оптический сигнал оператора"
+      },
+      "restriction_active": {
+        "name": "Белые списки активны"
+      },
+      "bypass_enabled": {
+        "name": "Автообход включён"
+      },
+      "vpn_running": {
+        "name": "VPN включён"
+      },
+      "probe_one": {
+        "name": "Проверка интернета 1"
+      },
+      "probe_two": {
+        "name": "Проверка интернета 2"
+      }
+    },
+    "select": {
+      "mode": {
+        "name": "Режим выбора канала",
+        "state": {
+          "auto": "Автоматически",
+          "pppoe": "Ростелеком",
+          "4g": "4G"
+        }
+      }
+    }
+  }
+}

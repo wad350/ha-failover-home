@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 768 192" width="768" height="192">
+  <defs>
+    <linearGradient id="network" x1="30" y1="36" x2="159" y2="156" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#a0f2da"/><stop offset="1" stop-color="#39bcac"/>
+    </linearGradient>
+  </defs>
+  <rect x="4" y="4" width="760" height="184" rx="45" fill="#112330"/>
+  <rect x="5.5" y="5.5" width="757" height="181" rx="43.5" fill="none" stroke="#284d54" stroke-width="3"/>
+  <g transform="translate(0 0) scale(.75)">
+    <path d="M43 117.5 128 51l85 66.5" fill="none" stroke="#83e6ce" stroke-width="13" stroke-linecap="round" stroke-linejoin="round"/>
+    <path d="M65 111v76a12 12 0 0 0 12 12h102a12 12 0 0 0 12-12v-76" fill="none" stroke="#54cfbb" stroke-width="11" stroke-linecap="round" stroke-linejoin="round"/>
+    <path d="M91 161h14l23-24 23 24h14" fill="none" stroke="#83e6ce" stroke-width="9" stroke-linecap="round" stroke-linejoin="round"/>
+    <circle cx="88" cy="161" r="9" fill="#65dcc4"/><circle cx="168" cy="161" r="9" fill="#65dcc4"/>
+    <circle cx="128" cy="137" r="7" fill="#f2fffb"/>
+    <path d="M115 113a19 19 0 0 1 26 0" fill="none" stroke="#b0f3e0" stroke-width="7" stroke-linecap="round"/>
+    <circle cx="128" cy="119" r="4.5" fill="#b0f3e0"/>
+  </g>
+  <path d="M189 42v108" stroke="#31505a" stroke-width="2"/>
+  <text x="220" y="94" fill="#effaf7" font-family="Arial, sans-serif" font-size="54" font-weight="700" letter-spacing="2">FAILOVER</text>
+  <text x="224" y="129" fill="#8fbdba" font-family="Arial, sans-serif" font-size="23" font-weight="600" letter-spacing="6">HOME NETWORK</text>
+</svg>

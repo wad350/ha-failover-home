@@ -1,0 +1,10 @@
+{
+  "domain": "failover_home",
+  "name": "Failover Home",
+  "version": "1.0.0",
+  "documentation": "https://github.com/wad350/ha-failover-home",
+  "config_flow": true,
+  "iot_class": "local_polling",
+  "requirements": [],
+  "issue_tracker": "https://github.com/wad350/ha-failover-home/issues"
+}
